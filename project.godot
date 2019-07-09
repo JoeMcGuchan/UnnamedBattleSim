@@ -1,0 +1,53 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Node2D",
+"class": "Action",
+"language": "GDScript",
+"path": "res://Scripts/Action.gd"
+}, {
+"base": "Resource",
+"class": "AdjudicationMethod",
+"language": "GDScript",
+"path": "res://Scripts/AdjudicationMethod.gd"
+}, {
+"base": "Curve2D",
+"class": "MotionPath",
+"language": "GDScript",
+"path": "res://Scripts/MotionPath.gd"
+}, {
+"base": "Action",
+"class": "MoveAction",
+"language": "GDScript",
+"path": "res://Scripts/MoveAction.gd"
+}, {
+"base": "Node2D",
+"class": "Unit",
+"language": "GDScript",
+"path": "res://Scripts/Unit.gd"
+} ]
+_global_script_class_icons={
+"Action": "",
+"AdjudicationMethod": "",
+"MotionPath": "",
+"MoveAction": "",
+"Unit": ""
+}
+
+[application]
+
+config/name="UnnamedBattleSim"
+run/main_scene="res://Scenes/Arena.tscn"
+config/icon="res://icon.png"
+
+[rendering]
+
+environment/default_environment="res://default_env.tres"
