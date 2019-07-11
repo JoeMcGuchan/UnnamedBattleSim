@@ -11,15 +11,16 @@ func adjudicate(units):
 	var shooting_units = []
 
 	for unit in units:
-		match unit.get_action().phase:
-			Action.PhaseType.DEFEND:
-				defending_units.append(unit)
-			Action.PhaseType.ATTACK:
-				attacking_units.append(unit)
-			Action.PhaseType.MOVE:
-				moving_units.append(unit)
-			Action.PhaseType.SHOOT:
-				shooting_units.append(unit)
+		if (unit.get_action() != null):
+			match unit.get_action().phase:
+				Action.PhaseType.DEFEND:
+					defending_units.append(unit)
+				Action.PhaseType.ATTACK:
+					attacking_units.append(unit)
+				Action.PhaseType.MOVE:
+					moving_units.append(unit)
+				Action.PhaseType.SHOOT:
+					shooting_units.append(unit)
 
 	call_melee_phase(defending_units, attacking_units)
 	call_move_phase(moving_units)
@@ -44,7 +45,8 @@ func call_move_phase(moving_units):
 	for unit in moving_units:
 		var action = unit.get_action()
 		if action is MoveAction:
-			unit.global_position = action.destination
+			unit.position += action.get_end_point()
+			unit.clear_action()
 		pass
 	pass
 

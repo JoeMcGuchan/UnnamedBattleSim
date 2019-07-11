@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scripts/UI.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/HoldAndReleaseButton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scripts/MoveButton.gd" type="Script" id=3]
 
 [node name="UI" type="Camera2D"]
 current = true
@@ -18,15 +20,7 @@ margin_right = 80.0
 margin_bottom = 17.9494
 text = "Adjudicate"
 
-[node name="Button" type="Button" parent="Control"]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -23.5
-margin_top = -20.0
-margin_right = 23.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "Move"
+[node name="HoldAndReleaseButton" parent="Control" instance=ExtResource( 2 )]
+script = ExtResource( 3 )
 [connection signal="pressed" from="Control/AdjudicateButton" to="." method="_on_AdjudicateButton_pressed"]
+[connection signal="button_pressed" from="Control/HoldAndReleaseButton" to="." method="_on_hold_and_release_button_pressed"]

@@ -32,3 +32,4 @@ func _add_action(action):
 	
 func clear_action():
 	next_action.queue_free()
+	next_action = null
