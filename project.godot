@@ -12,30 +12,36 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "Action",
 "language": "GDScript",
-"path": "res://Scripts/Action.gd"
+"path": "res://Scenes/Actions/Action.gd"
+}, {
+"base": "Node2D",
+"class": "ActionMaker",
+"language": "GDScript",
+"path": "res://Scenes/ActionMakers/ActionMaker.gd"
 }, {
 "base": "Resource",
 "class": "AdjudicationMethod",
 "language": "GDScript",
-"path": "res://Scripts/AdjudicationMethod.gd"
+"path": "res://Scenes/AdjudicationMethod.gd"
 }, {
 "base": "Button",
 "class": "HoldAndReleaseButton",
 "language": "GDScript",
-"path": "res://Scripts/HoldAndReleaseButton.gd"
+"path": "res://Scenes/UI/HoldAndReleaseButton.gd"
 }, {
 "base": "Action",
 "class": "MoveAction",
 "language": "GDScript",
-"path": "res://Scripts/MoveAction.gd"
+"path": "res://Scenes/Actions/MoveAction.gd"
 }, {
 "base": "Node2D",
 "class": "Unit",
 "language": "GDScript",
-"path": "res://Scripts/Unit.gd"
+"path": "res://Scenes/Unit.gd"
 } ]
 _global_script_class_icons={
 "Action": "",
+"ActionMaker": "",
 "AdjudicationMethod": "",
 "HoldAndReleaseButton": "",
 "MoveAction": "",
@@ -50,4 +56,5 @@ config/icon="res://icon.png"
 
 [rendering]
 
+environment/default_clear_color=Color( 0.85098, 0.85098, 0.85098, 1 )
 environment/default_environment="res://default_env.tres"

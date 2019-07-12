@@ -16,7 +16,10 @@ func create_action():
 	pass
 
 #overwritten by child
-func update_action(action):
+func update_action(a):
+	pass
+	
+func release_action(a):
 	pass
 	
 func _process(delta):
@@ -25,6 +28,7 @@ func _process(delta):
 
 func _on_HoldAndReleaseButton_button_up():
 	button_held = false
+	release_action(action)
 	emit_signal("button_released")
 
 

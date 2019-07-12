@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Scripts/UI.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/HoldAndReleaseButton.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scripts/MoveButton.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/UI/UI.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/UI/HoldAndReleaseButton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/UI/MoveButton.gd" type="Script" id=3]
 
 [node name="UI" type="Camera2D"]
 current = true

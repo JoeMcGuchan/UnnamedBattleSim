@@ -33,3 +33,7 @@ func _add_action(action):
 func clear_action():
 	next_action.queue_free()
 	next_action = null
+	
+func _draw():
+	draw_circle(Vector2(0,0), 16, Color.black)
+	draw_circle(Vector2(0,0), 15, Color.lightblue)
