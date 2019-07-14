@@ -5,6 +5,9 @@ class_name ActionMaker
 var action_name = "action"
 var color = Color.white
 
+var active = false
+var action
+
 #This is different to an action. It is inherited by a unit, and describes
 #An action that that unit COULD, THEORETIALLY perform.
 
@@ -28,6 +31,14 @@ func MakeAction():
 func UpdateAction(action, pos):
 	pass
 
-#returns a HoldAndReleaseButton that is wired to this maker, for use by the UI
-func GetButton():
-	pass
+#switches the action maker "on", creates an action and sets it as it's child
+func SwitchOn():
+	action = MakeAction()
+	active = true
+	add_child(action)
+
+func SwitchOff():
+	active = false
+	
+func _process(delta):
+	if active: UpdateAction(action, get_local_mouse_position())

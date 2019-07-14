@@ -17,6 +17,23 @@ const DIST_BETWEEN_ARROWS = 24
 const FADE_IN = 32
 const FADE_OUT = 32
 
+#distance before start and end of motion 
+const GAP_IN = 16
+const GAP_OUT = 16
+
+#parameters to determine spinning dotted circle at end of motion
+const TARGET_RADIUS = 16
+const TARGET_ARCS = 4
+const TARGET_REV_SPEED = 10
+#poportion of gap to drawn arc
+const TARGET_ARC_WIDTH = 0.5
+const ARC_DETAIL = 4
+
+var arc_offsets = 0
+
+#colour
+const COLOR = Color.yellow
+
 var move_arrow_offsets = 0
 var move_arrow_scene = preload("res://Scenes/UI/MoveArrow.tscn") 
 
@@ -71,4 +88,3 @@ func _process(delta):
 				move_arrow.queue_free()
 			
 		move_arrows.resize(numOfArrows)
-	
