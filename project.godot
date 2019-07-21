@@ -34,6 +34,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scenes/Actions/MoveAction.gd"
 }, {
+"base": "ActionMaker",
+"class": "MoveActionMaker",
+"language": "GDScript",
+"path": "res://Scenes/ActionMakers/MoveActionMaker.gd"
+}, {
 "base": "Node2D",
 "class": "Unit",
 "language": "GDScript",
@@ -45,6 +50,7 @@ _global_script_class_icons={
 "AdjudicationMethod": "",
 "HoldAndReleaseButton": "",
 "MoveAction": "",
+"MoveActionMaker": "res://Resources/Sprites/MoveIcon.png",
 "Unit": ""
 }
 
@@ -52,7 +58,7 @@ _global_script_class_icons={
 
 config/name="UnnamedBattleSim"
 run/main_scene="res://Scenes/Arena.tscn"
-config/icon="res://icon.png"
+config/icon="res://Resources/Sprites/Button.png"
 
 [rendering]
 

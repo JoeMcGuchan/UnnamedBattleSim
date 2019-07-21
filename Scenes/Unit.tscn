@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scenes/Unit.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/ActionMakers/MoveActionMaker.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/ActionMakers/ActionMaker.gd" type="Script" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 16.0
@@ -8,7 +10,9 @@ radius = 16.0
 [sub_resource type="CircleShape2D" id=2]
 radius = 48.0
 
-[node name="Unit" type="Node2D"]
+[node name="Unit" type="Node2D" groups=[
+"unit",
+]]
 position = Vector2( 517, 299 )
 script = ExtResource( 1 )
 
@@ -21,3 +25,25 @@ shape = SubResource( 1 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="AttackRange"]
 shape = SubResource( 2 )
+
+[node name="MoveActionMaker" parent="." instance=ExtResource( 2 )]
+
+[node name="ActionMaker2" type="Node2D" parent="." groups=[
+"action_maker",
+]]
+script = ExtResource( 3 )
+card_text = "2"
+card_colour = Color( 1, 0, 0, 1 )
+overlay_title = "Action Two"
+overlay_description = "This is the second action"
+overlay_colour = Color( 0.254902, 0.117647, 0, 1 )
+
+[node name="ActionMaker3" type="Node2D" parent="." groups=[
+"action_maker",
+]]
+script = ExtResource( 3 )
+card_text = "3"
+card_colour = Color( 0, 0.929412, 1, 1 )
+overlay_title = "Action Three"
+overlay_description = "This is the third action"
+overlay_colour = Color( 0, 0.227451, 0.239216, 1 )

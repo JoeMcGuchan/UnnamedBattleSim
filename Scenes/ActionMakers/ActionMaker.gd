@@ -2,8 +2,12 @@ extends Node2D
 
 class_name ActionMaker
 
-var action_name = "action"
-var color = Color.white
+export var card_text : String
+export var card_colour : Color
+
+export var overlay_title : String
+export var overlay_description : String
+export var overlay_colour : Color
 
 var active = false
 var action
@@ -16,29 +20,35 @@ var action
 
 #checks if the parent unit CAN perform the action, so whether or not to
 #display that action as a HoldAndReleaseButton
-func CheckPossible():
+func check_possible():
 	return false
 
 #takes an action and checks if it is an action this node could produce
-func CheckLegal(action):
+func check_legal(action):
 	return false
 
-func MakeAction():
+func make_action():
 	pass
 
 #all actions take only a mouse position (in local coordinates) to produce
 #this function gets the action corresponding to the position.
-func UpdateAction(action, pos):
+func update_action(action, pos):
 	pass
 
-#switches the action maker "on", creates an action and sets it as it's child
-func SwitchOn():
-	action = MakeAction()
-	active = true
-	add_child(action)
+func draw_active(delta):
+	#draw_line(Vector2(0,0),get_local_mouse_position(),overlay_colour,1.0)
+	print("draw")
 
-func SwitchOff():
+#switches the action maker "on"
+func switch_on():
+	active = true
+
+#switched action maker "off", making an action in the process
+func switch_off():
+	action = make_action()
+	add_child(action)
+	update_action(action,get_local_mouse_position())
 	active = false
-	
+
 func _process(delta):
-	if active: UpdateAction(action, get_local_mouse_position())
+	if active: draw_active(delta)

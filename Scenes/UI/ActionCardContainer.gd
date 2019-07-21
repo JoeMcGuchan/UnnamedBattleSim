@@ -1,9 +1,9 @@
-extends Control
+extends HBoxContainer
 
-var alpha = 0
-export var active = false
+var alpha = 1
+export var active = true
 
-const FADE_SPEED = 1
+const FADE_SPEED = 3
 
 func _process(delta):
 	if active and alpha < 1:
@@ -13,11 +13,8 @@ func _process(delta):
 		alpha = max(alpha - FADE_SPEED * delta, 0)
 		modulate = Color(1,1,1,alpha)
 		
-func activate(title,description,colour):
+func activate():
 	active = true
-	$MarginContainer/VBoxContainer/NameOfAction.text = title
-	$MarginContainer/VBoxContainer/DescriptionOfAction.text = description
-	$TextureRect.modulate = colour
 	
 func deactivate():
 	active = false

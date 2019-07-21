@@ -1,44 +1,54 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scenes/UI/UI.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/UI/ActionInfoDisplay.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/UI/ActionCard.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/UI/Margins.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/UI/ActionInfoDisplay.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/UI/ActionCardContainer.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/UI/ActionAddTimer.gd" type="Script" id=5]
 
-[node name="UI" type="Camera2D"]
-current = true
+[node name="ActionSelectUI" type="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -512.0
+margin_top = -300.0
+margin_right = 512.0
+margin_bottom = 300.0
 script = ExtResource( 1 )
 
-[node name="Control2" type="Control" parent="."]
+[node name="Margins" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 32.0
+margin_top = 32.0
+margin_right = -32.0
+margin_bottom = -32.0
+script = ExtResource( 2 )
 
-[node name="ActionIntoDisplay" parent="Control2" instance=ExtResource( 2 )]
-anchor_left = 0.0
-anchor_bottom = 1.0
-margin_left = 0.0
-margin_bottom = 0.0
+[node name="ActionInfoDisplay" parent="Margins" instance=ExtResource( 3 )]
+margin_left = -992.0
+margin_top = -32.0
+margin_right = 32.0
+margin_bottom = 568.0
+active = false
 
-[node name="Control" type="Control" parent="Control2"]
-margin_right = 964.0
-margin_bottom = 540.0
-
-[node name="AdjudicateButton" type="Button" parent="Control2/Control"]
-margin_top = -2.0506
+[node name="AdjudicateButton" type="Button" parent="Margins"]
 margin_right = 80.0
-margin_bottom = 17.9494
+margin_bottom = 41.0
 text = "Adjudicate"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control2/Control"]
-anchor_left = 0.5
+[node name="ActionCardContainer" type="HBoxContainer" parent="Margins"]
 anchor_top = 1.0
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -482.0
-margin_top = -72.0
-margin_right = 482.0
+margin_top = -64.0
 alignment = 1
+script = ExtResource( 4 )
 
-[node name="ActionCard" parent="Control2/Control/HBoxContainer" instance=ExtResource( 3 )]
-margin_left = 482.0
-margin_right = 482.0
-[connection signal="pressed" from="Control2/Control/AdjudicateButton" to="." method="_on_AdjudicateButton_pressed"]
+[node name="ActionAddTimer" type="Timer" parent="."]
+wait_time = 0.1
+script = ExtResource( 5 )
+[connection signal="add_action_makers" from="." to="ActionAddTimer" method="init"]
+[connection signal="addactionmaker" from="ActionAddTimer" to="." method="add_action_maker"]
+[connection signal="timeout" from="ActionAddTimer" to="ActionAddTimer" method="_on_ActionAddTimer_timeout"]

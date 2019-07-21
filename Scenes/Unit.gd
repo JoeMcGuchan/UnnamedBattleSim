@@ -37,3 +37,10 @@ func clear_action():
 func _draw():
 	draw_circle(Vector2(0,0), 16, Color.black)
 	draw_circle(Vector2(0,0), 15, Color.lightblue)
+	
+func get_action_makers():
+	var action_makers = []
+	for node in get_children():
+		if node.is_in_group("action_maker"):
+			action_makers.append(node)
+	return action_makers

@@ -2,5 +2,12 @@
 
 [ext_resource path="res://Scenes/ActionMakers/MoveActionMaker.gd" type="Script" id=1]
 
-[node name="MoveActionMaker" type="Node2D"]
+[node name="MoveActionMaker" type="Node2D" groups=[
+"action_maker",
+]]
 script = ExtResource( 1 )
+card_text = "Move"
+card_colour = Color( 1, 0.913725, 0, 1 )
+overlay_title = "Move"
+overlay_description = "Choose a location, unit will move to chosen location if not attacked"
+overlay_colour = Color( 0.294118, 0.290196, 0, 1 )
