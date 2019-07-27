@@ -18,6 +18,9 @@ drag_margin_v_enabled = false
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Control" parent="CanvasLayer" instance=ExtResource( 2 )]
+
+[node name="MovingItems" type="Node2D" parent="CanvasLayer"]
 [connection signal="add_unit" from="." to="CanvasLayer/Control" method="add_unit"]
 [connection signal="timeout" from="MoveOntoNextUnit" to="." method="next_unit"]
+[connection signal="add_to_control" from="CanvasLayer/Control" to="." method="_on_Control_add_to_control"]
 [connection signal="next_unit" from="CanvasLayer/Control" to="MoveOntoNextUnit" method="start"]

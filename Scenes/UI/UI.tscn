@@ -50,5 +50,6 @@ script = ExtResource( 4 )
 wait_time = 0.1
 script = ExtResource( 5 )
 [connection signal="add_action_makers" from="." to="ActionAddTimer" method="init"]
+[connection signal="pressed" from="Margins/AdjudicateButton" to="." method="_on_AdjudicateButton_pressed"]
 [connection signal="addactionmaker" from="ActionAddTimer" to="." method="add_action_maker"]
 [connection signal="timeout" from="ActionAddTimer" to="ActionAddTimer" method="_on_ActionAddTimer_timeout"]

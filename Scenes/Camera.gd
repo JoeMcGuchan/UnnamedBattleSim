@@ -61,3 +61,6 @@ func _process(delta):
 		else: 
 			$Camera.position += speed
 		
+
+func _on_Control_add_to_control(button):
+	$CanvasLayer/MovingItems.add_child(button)

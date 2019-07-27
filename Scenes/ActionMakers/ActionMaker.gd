@@ -37,7 +37,7 @@ func update_action(action, pos):
 
 func draw_active(delta):
 	#draw_line(Vector2(0,0),get_local_mouse_position(),overlay_colour,1.0)
-	print("draw")
+	pass
 
 #switches the action maker "on"
 func switch_on():

@@ -28,3 +28,4 @@ position = Vector2( -1.61462, -0.850143 )
 position = Vector2( -213.251, 143.194 )
 
 [node name="UI" parent="." instance=ExtResource( 5 )]
+[connection signal="add_unit" from="UI" to="UI/CanvasLayer/Control" method="add_unit"]

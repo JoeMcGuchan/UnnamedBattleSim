@@ -1,6 +1,6 @@
 extends Node2D
 
-class_name Unit
+class_name Unit,"res://Resources/Sprites/Icons/UnitIcon.png"
 
 var health = 100
 var breath = 100

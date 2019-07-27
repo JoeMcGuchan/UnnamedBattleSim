@@ -11,3 +11,6 @@ card_colour = Color( 1, 0.913725, 0, 1 )
 overlay_title = "Move"
 overlay_description = "Choose a location, unit will move to chosen location if not attacked"
 overlay_colour = Color( 0.294118, 0.290196, 0, 1 )
+
+[node name="Line2D" type="Line2D" parent="."]
+texture_mode = 0
