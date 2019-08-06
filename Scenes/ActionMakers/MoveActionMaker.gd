@@ -47,13 +47,11 @@ func make_circle_poly(precision, r, translation):
 func check_legal(action):
 	if not action is MoveAction: return false
 	if action.speed != speed: return false
-	if action.path.get_baked_length() > 100: return false
+	if action.path.get_baked_length() > max_distance: return false
 	return true
 
 func make_action():
 	var a = move_action_scene.instance()
-	a.add_point(Vector2(0,0))
-	a.add_point(Vector2(0,0))
 	#put a second value in a for now (will be overwritten)
 	return a
 

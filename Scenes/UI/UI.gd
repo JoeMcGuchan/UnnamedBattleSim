@@ -41,6 +41,7 @@ func add_action_maker(action_maker):
 	action_card.connect("deactivate_overlay",$Margins/ActionInfoDisplay,"deactivate")
 	action_card.connect("deactivate_overlay",$Margins,"deactivate")
 	action_card.connect("deactivate_overlay",$Margins/ActionCardContainer,"activate")
+	action_card.connect("deactivate_overlay",action_maker,"switch_off_safely")
 	action_card.connect("card_released",action_maker,"switch_off")
 	action_card.connect("card_released",self,"next_unit")
 	

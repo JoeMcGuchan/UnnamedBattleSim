@@ -3,14 +3,15 @@
 [ext_resource path="res://Scenes/Actions/MoveAction.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/GraphicalItems/MovingArrowLine.tscn" type="PackedScene" id=2]
 
-
 [sub_resource type="Curve2D" id=1]
 resource_local_to_scene = true
 _data = {
 "points": PoolVector2Array(  )
 }
 
-[node name="MoveAction" type="Node2D"]
+[node name="MoveAction" type="Node2D" groups=[
+"Action",
+]]
 show_behind_parent = true
 script = ExtResource( 1 )
 path = SubResource( 1 )
