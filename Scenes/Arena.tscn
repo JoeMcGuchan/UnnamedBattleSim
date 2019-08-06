@@ -8,24 +8,17 @@
 
 [node name="Arena" type="Node2D"]
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Adjudicator" parent="." instance=ExtResource( 2 )]
 adjudication_method = ExtResource( 3 )
 
 [node name="Unit" parent="." instance=ExtResource( 4 )]
-position = Vector2( 217.776, 145.41 )
+position = Vector2( 118.818, 123.342 )
 
 [node name="Unit2" parent="." instance=ExtResource( 4 )]
-position = Vector2( -235.411, -155.976 )
-
-[node name="Unit4" parent="." instance=ExtResource( 4 )]
-position = Vector2( 196.724, -172.596 )
-
-[node name="Unit5" parent="." instance=ExtResource( 4 )]
-position = Vector2( -1.61462, -0.850143 )
-
-[node name="Unit3" parent="." instance=ExtResource( 4 )]
-position = Vector2( -213.251, 143.194 )
+position = Vector2( -218.873, -2.99239 )
 
 [node name="UI" parent="." instance=ExtResource( 5 )]
-[connection signal="add_unit" from="UI" to="UI/CanvasLayer/Control" method="add_unit"]

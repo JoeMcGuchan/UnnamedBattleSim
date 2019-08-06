@@ -76,7 +76,6 @@ func update_state(state):
 		pass
 	else: if state == STATE.PRESSED:
 		if current_state == STATE.SELECTED:
-			print("deactivate")
 			emit_signal("deactivate_overlay")
 		$BusyWobble.set_mode($BusyWobble.ACTIVITY_LEVEL.OFF)
 		current_state = STATE.PRESSED

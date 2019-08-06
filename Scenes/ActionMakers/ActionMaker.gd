@@ -35,20 +35,22 @@ func make_action():
 func update_action(action, pos):
 	pass
 
-func draw_active(delta):
+func draw_active(delta, pos):
 	#draw_line(Vector2(0,0),get_local_mouse_position(),overlay_colour,1.0)
 	pass
 
 #switches the action maker "on"
 func switch_on():
+	visible = true
 	active = true
 
 #switched action maker "off", making an action in the process
 func switch_off():
+	visible = false
 	action = make_action()
-	add_child(action)
+	get_parent().add_child(action)
 	update_action(action,get_local_mouse_position())
 	active = false
 
 func _process(delta):
-	if active: draw_active(delta)
+	if active: draw_active(delta,get_local_mouse_position())

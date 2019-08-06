@@ -1,6 +1,12 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scenes/ActionMakers/MoveActionMaker.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/GraphicalItems/MovingArrowLine.tscn" type="PackedScene" id=2]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array(  )
+}
 
 [node name="MoveActionMaker" type="Node2D" groups=[
 "action_maker",
@@ -9,8 +15,14 @@ script = ExtResource( 1 )
 card_text = "Move"
 card_colour = Color( 1, 0.913725, 0, 1 )
 overlay_title = "Move"
-overlay_description = "Choose a location, unit will move to chosen location if not attacked"
+overlay_description = "Choose a location to move to"
 overlay_colour = Color( 0.294118, 0.290196, 0, 1 )
 
-[node name="Line2D" type="Line2D" parent="."]
-texture_mode = 0
+[node name="MovingArrowLine" parent="." instance=ExtResource( 2 )]
+modulate = Color( 0.498039, 0.447059, 0, 0.937255 )
+self_modulate = Color( 0.501961, 0.6, 1, 0.701961 )
+curve = SubResource( 1 )
+speed = 0
+target_rev_speed = 0.0
+
+[node name="Nav" type="Navigation2D" parent="."]

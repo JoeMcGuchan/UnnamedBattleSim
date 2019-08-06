@@ -9,6 +9,8 @@ var experience = 0
 
 var next_action
 
+var radius = 16
+
 func _ready():
 	#get the first child that is an action
 	find_next_action()
@@ -33,10 +35,6 @@ func _add_action(action):
 func clear_action():
 	next_action.queue_free()
 	next_action = null
-	
-func _draw():
-	draw_circle(Vector2(0,0), 16, Color.black)
-	draw_circle(Vector2(0,0), 15, Color.lightblue)
 	
 func get_action_makers():
 	var action_makers = []
