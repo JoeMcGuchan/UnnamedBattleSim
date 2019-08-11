@@ -24,3 +24,4 @@ drag_margin_v_enabled = false
 [connection signal="timeout" from="MoveOntoNextUnit" to="." method="next_unit"]
 [connection signal="add_to_control" from="CanvasLayer/Control" to="." method="_on_Control_add_to_control"]
 [connection signal="next_unit" from="CanvasLayer/Control" to="MoveOntoNextUnit" method="start"]
+[connection signal="on_AdjudicateButton_pressed" from="CanvasLayer/Control" to="." method="_on_AdjudicateButton_pressed"]

@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/GraphicalItems/AttackArrow.gd" type="Script" id=1]
+[ext_resource path="res://Resources/Sprites/Attack.png" type="Texture" id=2]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 76.966, 87.7053, 0, 0, 0, 0, 114.198, 124.937 )
+}
+
+[node name="AttackArrow" type="Path2D"]
+curve = SubResource( 1 )
+script = ExtResource( 1 )
+colour = Color( 1, 0, 0, 1 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2( 76.966, 87.7053 )
+rotation = 0.785395
+loop = false
+
+[node name="Sprite" type="Sprite" parent="PathFollow2D"]
+texture = ExtResource( 2 )

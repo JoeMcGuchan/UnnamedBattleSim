@@ -22,3 +22,4 @@ position = Vector2( 118.818, 123.342 )
 position = Vector2( -218.873, -2.99239 )
 
 [node name="UI" parent="." instance=ExtResource( 5 )]
+[connection signal="adjudicate" from="UI" to="Adjudicator" method="_adjudicate"]
