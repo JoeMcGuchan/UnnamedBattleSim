@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/ActionMakers/AttackActionMaker.gd" type="Script" id=1]
+
+[node name="AttackActionMaker" type="Node2D" groups=[
+"action_maker",
+]]
+script = ExtResource( 1 )
+card_text = "Attack"
+card_colour = Color( 1, 0, 0, 1 )
+overlay_title = "Attack"
+overlay_description = "Choose a unit to attack"
+overlay_colour = Color( 0.341176, 0, 0, 1 )

@@ -16,10 +16,14 @@ __meta__ = {
 adjudication_method = ExtResource( 3 )
 
 [node name="Unit" parent="." instance=ExtResource( 4 )]
-position = Vector2( 118.818, 123.342 )
+position = Vector2( 65.8747, 103.794 )
 
 [node name="Unit2" parent="." instance=ExtResource( 4 )]
-position = Vector2( -218.873, -2.99239 )
+position = Vector2( 23.0372, 97.1926 )
+
+[node name="Unit3" parent="." instance=ExtResource( 4 )]
+position = Vector2( -40.8264, -129.157 )
 
 [node name="UI" parent="." instance=ExtResource( 5 )]
+position = Vector2( 0, -0.814514 )
 [connection signal="adjudicate" from="UI" to="Adjudicator" method="_adjudicate"]

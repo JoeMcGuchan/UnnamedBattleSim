@@ -55,7 +55,7 @@ func add_action_maker(action_maker):
 	action_card_anchors.append(card_anchor)
 	
 func add_unit(unit):
-	emit_signal("add_action_makers",unit.get_action_makers())
+	emit_signal("add_action_makers",unit.get_possible_action_makers())
 	
 func next_unit():
 	clear()

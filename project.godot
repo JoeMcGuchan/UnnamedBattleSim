@@ -24,6 +24,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scenes/AdjudicationMethod.gd"
 }, {
+"base": "ActionMaker",
+"class": "AttackActionMaker",
+"language": "GDScript",
+"path": "res://Scenes/ActionMakers/AttackActionMaker.gd"
+}, {
 "base": "Path2D",
 "class": "AttackArrow",
 "language": "GDScript",
@@ -58,6 +63,7 @@ _global_script_class_icons={
 "Action": "",
 "ActionMaker": "",
 "AdjudicationMethod": "",
+"AttackActionMaker": "res://Resources/Sprites/Attack.png",
 "AttackArrow": "res://Resources/Sprites/Attack.png",
 "BusyWobble": "res://Resources/Sprites/Icons/BusyWobble.png",
 "HoldAndReleaseButton": "",

@@ -5,6 +5,9 @@ class_name Unit,"res://Resources/Sprites/Icons/UnitIcon.png"
 var health = 100
 var breath = 100
 
+var max_health = 100
+var max_breath = 100
+
 var experience = 0
 
 var next_action
@@ -36,9 +39,10 @@ func clear_action():
 	next_action.queue_free()
 	next_action = null
 	
-func get_action_makers():
+func get_possible_action_makers():
 	var action_makers = []
 	for node in get_children():
 		if node.is_in_group("action_maker"):
-			action_makers.append(node)
+			if node.check_possible():
+				action_makers.append(node)
 	return action_makers

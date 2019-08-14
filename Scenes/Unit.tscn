@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/Unit.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/ActionMakers/MoveActionMaker.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/ActionMakers/ActionMaker.gd" type="Script" id=3]
-[ext_resource path="res://Resources/Sprites/Unit.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/ActionMakers/AttackActionMaker.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/ActionMakers/ActionMaker.gd" type="Script" id=4]
+[ext_resource path="res://Resources/Sprites/Unit.png" type="Texture" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 16.0
@@ -29,20 +30,12 @@ shape = SubResource( 2 )
 
 [node name="MoveActionMaker" parent="." instance=ExtResource( 2 )]
 
-[node name="ActionMaker2" type="Node2D" parent="." groups=[
-"action_maker",
-]]
-script = ExtResource( 3 )
-card_text = "2"
-card_colour = Color( 1, 0, 0, 1 )
-overlay_title = "Action Two"
-overlay_description = "This is the second action"
-overlay_colour = Color( 0.254902, 0.117647, 0, 1 )
+[node name="MoveActionMaker2" parent="." instance=ExtResource( 3 )]
 
 [node name="ActionMaker3" type="Node2D" parent="." groups=[
 "action_maker",
 ]]
-script = ExtResource( 3 )
+script = ExtResource( 4 )
 card_text = "3"
 card_colour = Color( 0, 0.929412, 1, 1 )
 overlay_title = "Action Three"
@@ -50,4 +43,4 @@ overlay_description = "This is the third action"
 overlay_colour = Color( 0, 0.227451, 0.239216, 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
