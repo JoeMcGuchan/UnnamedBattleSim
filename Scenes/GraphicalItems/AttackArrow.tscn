@@ -9,6 +9,7 @@ _data = {
 }
 
 [node name="AttackArrow" type="Path2D"]
+visible = false
 curve = SubResource( 1 )
 script = ExtResource( 1 )
 colour = Color( 1, 0, 0, 1 )

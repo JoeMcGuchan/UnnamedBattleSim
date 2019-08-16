@@ -36,7 +36,17 @@ func make_action():
 #all actions take only a mouse position (in local coordinates) to produce
 #this function gets the action corresponding to the position.
 func update_action(action, pos):
+	action.init(get_near_unit(pos),attack_strength,attack_cost)
 	pass
 	
+func get_near_unit(pos):
+	var dist = INF
+	var nearunit = null
+	for unit in units_attackable:
+		if to_local(unit.global_position).distance_to(pos) < dist:
+			dist = to_local(unit.global_position).distance_to(pos)
+			nearunit = unit
+	return nearunit
+
 func draw_active(delta, pos):
-	pass
+	$AttackArrow.switch_on(get_near_unit(pos))

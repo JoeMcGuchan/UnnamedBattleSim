@@ -38,3 +38,11 @@ func _process(delta):
 			fwd = true
 	
 	$PathFollow2D.offset = pos
+	
+func switch_on(unit):
+	curve.set_point_position(0,Vector2(0,0))
+	curve.set_point_position(1,to_local(unit.global_position))
+	visible = true
+	
+func switch_off():
+	visible = false
