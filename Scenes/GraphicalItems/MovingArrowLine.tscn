@@ -9,9 +9,13 @@ _data = {
 }
 
 [node name="MovingArrowLine" type="Path2D"]
+modulate = Color( 0, 0, 0, 1 )
 show_behind_parent = true
 curve = SubResource( 1 )
 script = ExtResource( 1 )
 
-[node name="Target" type="Sprite" parent="."]
+[node name="DesiredTarget" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="ActualTarget" type="Sprite" parent="."]
 texture = ExtResource( 2 )

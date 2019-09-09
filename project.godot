@@ -19,10 +19,10 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scenes/ActionMakers/ActionMaker.gd"
 }, {
-"base": "Resource",
-"class": "AdjudicationMethod",
+"base": "Node2D",
+"class": "ActionResult",
 "language": "GDScript",
-"path": "res://Scenes/AdjudicationMethod.gd"
+"path": "res://Scenes/ActionResult/ActionResult.gd"
 }, {
 "base": "ActionMaker",
 "class": "AttackActionMaker",
@@ -39,6 +39,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scenes/GraphicalItems/BusyWobble.gd"
 }, {
+"base": "ActionMaker",
+"class": "DefendActionMaker",
+"language": "GDScript",
+"path": "res://Scenes/ActionMakers/DefendActionMaker.gd"
+}, {
 "base": "Button",
 "class": "HoldAndReleaseButton",
 "language": "GDScript",
@@ -54,6 +59,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scenes/ActionMakers/MoveActionMaker.gd"
 }, {
+"base": "Object",
+"class": "QueueWithFastFind",
+"language": "GDScript",
+"path": "res://Scripts/QueueWithFastFind.gd"
+}, {
 "base": "Node2D",
 "class": "Unit",
 "language": "GDScript",
@@ -62,13 +72,15 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "Action": "",
 "ActionMaker": "",
-"AdjudicationMethod": "",
+"ActionResult": "",
 "AttackActionMaker": "res://Resources/Sprites/Attack.png",
 "AttackArrow": "res://Resources/Sprites/Attack.png",
 "BusyWobble": "res://Resources/Sprites/Icons/BusyWobble.png",
+"DefendActionMaker": "res://Resources/Sprites/Icons/DefendIcon.png",
 "HoldAndReleaseButton": "",
 "MoveAction": "",
 "MoveActionMaker": "res://Resources/Sprites/MoveIcon.png",
+"QueueWithFastFind": "",
 "Unit": "res://Resources/Sprites/Icons/UnitIcon.png"
 }
 

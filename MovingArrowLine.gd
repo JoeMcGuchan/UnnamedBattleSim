@@ -17,6 +17,16 @@ export var crop_out = 8
 
 export var target_rev_speed = 0.5
 
+#amount "complete" the action is in pixels
+export var distance_traveled = INF
+
+#amount of alpha to apply to arrows that are past the end of the complete
+const FADE_INCOMPLETE = 0.3
+const FADE_IMCOPLETE_DISTANCE = 8
+
+#numbr of pizels actual target must be from desired target to be rendered
+const FULLY_COMPLETE_MIN_DIST = 10
+
 var move_arrow_offsets = 0
 var move_arrow_scene = preload("res://Scenes/GraphicalItems/MoveArrow.tscn") 
 
@@ -47,10 +57,24 @@ func _process(delta):
 				
 				#set fade
 				var alpha = 1.0
+				
+				#apply fade to distinguish awwors that will be traversed from arrows
+				#that were desired to be traversed
+				var crossover_point = distance_traveled
+				
+				if (move_arrow.offset > crossover_point - FADE_IMCOPLETE_DISTANCE):
+					if (move_arrow.offset < crossover_point + FADE_IMCOPLETE_DISTANCE):
+						alpha = 1 - (1 - FADE_INCOMPLETE) * (move_arrow.offset - crossover_point + FADE_IMCOPLETE_DISTANCE) / (FADE_IMCOPLETE_DISTANCE * 2)
+					else:
+						alpha = FADE_INCOMPLETE
+				
+				#apply a further fade if we are about to arrive at our destination or 
+				#are just leaving
 				if (move_arrow.offset - crop_in < fade_in):
-					alpha = (move_arrow.offset - crop_in)/fade_in
+					alpha = alpha*(move_arrow.offset - crop_in)/fade_in
 				if (curve.get_baked_length() - move_arrow.offset - crop_out < fade_out):
-					alpha = (curve.get_baked_length() - move_arrow.offset - crop_out) / fade_out
+					alpha = alpha*(curve.get_baked_length() - move_arrow.offset - crop_out) / fade_out
+				
 				move_arrow.modulate = Color(1.0,1.0,1.0,alpha)
 				
 				n += 1
@@ -59,8 +83,18 @@ func _process(delta):
 			
 		move_arrows.resize(numOfArrows)
 		
+		#do not show the target if 
 		#rotate the target
-		$Target.rotation = fmod($Target.rotation + delta * target_rev_speed,TAU)
-		$Target.position = curve.get_point_position(curve.get_point_count() - 1)
+		$DesiredTarget.rotation = fmod($DesiredTarget.rotation + delta * target_rev_speed,TAU)
+		$DesiredTarget.position = curve.get_point_position(curve.get_point_count() - 1)
+		$DesiredTarget.modulate = Color(1,1,1,FADE_INCOMPLETE)
+		
+		$ActualTarget.rotation = fmod($ActualTarget.rotation + delta * target_rev_speed,TAU)
+		$ActualTarget.position = curve.interpolate_baked(min(curve.get_baked_length(),distance_traveled))
+		
+		if ($ActualTarget.position.distance_to($DesiredTarget.position) < FULLY_COMPLETE_MIN_DIST):
+			$DesiredTarget.visible = false
+		else:
+			$DesiredTarget.visible = true
 	else:
 		visible = false

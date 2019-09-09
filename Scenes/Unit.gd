@@ -46,3 +46,10 @@ func get_possible_action_makers():
 			if node.check_possible():
 				action_makers.append(node)
 	return action_makers
+	
+func get_all_action_makers():
+	var action_makers = []
+	for node in get_children():
+		if node.is_in_group("action_maker"):
+			action_makers.append(node)
+	return action_makers

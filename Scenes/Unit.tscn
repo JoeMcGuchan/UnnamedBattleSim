@@ -3,14 +3,16 @@
 [ext_resource path="res://Scenes/Unit.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/ActionMakers/MoveActionMaker.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/ActionMakers/AttackActionMaker.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/ActionMakers/ActionMaker.gd" type="Script" id=4]
-[ext_resource path="res://Resources/Sprites/Unit.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/ActionMakers/DefendActionMaker.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Resources/Sprites/IconGrid.png" type="Texture" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 16.0
+radius = 20.7992
 
-[sub_resource type="CircleShape2D" id=2]
-radius = 48.0
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 64, 0, 64, 64 )
 
 [node name="Unit" type="Node2D" groups=[
 "unit",
@@ -23,24 +25,16 @@ script = ExtResource( 1 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Body"]
 shape = SubResource( 1 )
 
-[node name="AttackRange" type="Area2D" parent="."]
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="AttackRange"]
-shape = SubResource( 2 )
-
 [node name="MoveActionMaker" parent="." instance=ExtResource( 2 )]
+overlay_colour = Color( 1, 0.996078, 0.811765, 1 )
 
-[node name="MoveActionMaker2" parent="." instance=ExtResource( 3 )]
+[node name="AttackActionMaker2" parent="." instance=ExtResource( 3 )]
+overlay_colour = Color( 1, 0.690196, 0.690196, 1 )
 
-[node name="ActionMaker3" type="Node2D" parent="." groups=[
-"action_maker",
-]]
-script = ExtResource( 4 )
-card_text = "3"
-card_colour = Color( 0, 0.929412, 1, 1 )
-overlay_title = "Action Three"
-overlay_description = "This is the third action"
-overlay_colour = Color( 0, 0.227451, 0.239216, 1 )
+[node name="DefendActionMaker" parent="." instance=ExtResource( 4 )]
+card_colour = Color( 0, 0.952941, 1, 1 )
+overlay_colour = Color( 0.764706, 1, 0.996078, 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-texture = ExtResource( 5 )
+scale = Vector2( 0.711243, 0.711243 )
+texture = SubResource( 3 )

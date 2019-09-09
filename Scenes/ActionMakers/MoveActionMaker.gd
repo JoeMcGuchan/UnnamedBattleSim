@@ -5,7 +5,7 @@ extends ActionMaker
 class_name MoveActionMaker,"res://Resources/Sprites/MoveIcon.png"
 
 var speed = 1
-var max_distance = 200
+var max_distance = 150
 
 #distance to steer clear of other units, typically the radius
 #of the unit plus some amount
@@ -59,6 +59,7 @@ func make_action():
 #this function gets the action corresponding to the position.
 func update_action(action, pos):
 	action.add_point(Vector2(0,0))
+	action.clearance = clear_distance
 	for vec in $Nav.get_simple_path(Vector2(0,0),pos):
 		action.add_point(vec)
 	

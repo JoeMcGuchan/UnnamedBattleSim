@@ -27,6 +27,7 @@ margin_bottom = -32.0
 script = ExtResource( 2 )
 
 [node name="ActionInfoDisplay" parent="Margins" instance=ExtResource( 3 )]
+modulate = Color( 1, 1, 1, 0 )
 margin_left = -992.0
 margin_top = -32.0
 margin_right = 32.0

@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/ActionMakers/DefendActionMaker.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/GraphicalItems/DefendVisual.tscn" type="PackedScene" id=2]
+
+[node name="DefendActionMaker" type="Node2D" groups=[
+"action_maker",
+]]
+script = ExtResource( 1 )
+card_text = "Defend"
+card_colour = Color( 0, 0.952941, 1, 1 )
+overlay_title = "Defend"
+overlay_description = "Choose a unit to defend from attacks from"
+overlay_colour = Color( 0, 0.333333, 0.32549, 1 )
+
+[node name="DefendVisual" parent="." instance=ExtResource( 2 )]
+visible = false
+colour = Color( 0, 0.603922, 0.576471, 1 )
