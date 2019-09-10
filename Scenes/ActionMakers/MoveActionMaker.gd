@@ -58,7 +58,6 @@ func make_action():
 #all actions take only a mouse position (in local coordinates) to produce
 #this function gets the action corresponding to the position.
 func update_action(action, pos):
-	action.add_point(Vector2(0,0))
 	action.clearance = clear_distance
 	for vec in $Nav.get_simple_path(Vector2(0,0),pos):
 		action.add_point(vec)

@@ -10,7 +10,7 @@ func push(item):
 	item_in_queue[item] = true
 
 func push_if_not_duplicate(item):
-	if item_in_queue.has(item):
+	if not item_in_queue.has(item):
 		push(item)
 		
 func has(item):
@@ -20,3 +20,6 @@ func pop():
 	var item = queue.pop_front()
 	item_in_queue.erase(item)
 	return item
+	
+func empty():
+	return queue.empty()

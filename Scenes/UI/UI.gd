@@ -1,4 +1,4 @@
-extends Control
+   extends Control
 
 var action_card_anchor_scene = preload("./ActionCardAnchor.tscn")
 var action_card_button_scene = preload("../GraphicalItems/ActionCardButton.tscn")

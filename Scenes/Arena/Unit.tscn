@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://Scenes/Unit.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Arena/Unit.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/ActionMakers/MoveActionMaker.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/ActionMakers/AttackActionMaker.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/ActionMakers/DefendActionMaker.tscn" type="PackedScene" id=4]
@@ -9,7 +9,7 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 20.7992
 
-[sub_resource type="AtlasTexture" id=3]
+[sub_resource type="AtlasTexture" id=2]
 flags = 4
 atlas = ExtResource( 5 )
 region = Rect2( 64, 0, 64, 64 )
@@ -32,9 +32,8 @@ overlay_colour = Color( 1, 0.996078, 0.811765, 1 )
 overlay_colour = Color( 1, 0.690196, 0.690196, 1 )
 
 [node name="DefendActionMaker" parent="." instance=ExtResource( 4 )]
-card_colour = Color( 0, 0.952941, 1, 1 )
 overlay_colour = Color( 0.764706, 1, 0.996078, 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 0.711243, 0.711243 )
-texture = SubResource( 3 )
+texture = SubResource( 2 )

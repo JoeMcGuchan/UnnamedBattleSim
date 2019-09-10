@@ -11,16 +11,17 @@ var actions_affecting = []
 var actions_affected_by = []
 
 func _ready():
-	for action in actions_affecting:
-		add_affecting_action(action)
+	pass
 
 func add_affecting_action(action):
 	if not actions_affecting.has(action): actions_affecting.append(action)
-	if not action.actions_affected_by.has(action): action.actions_affected_by.append(action)
+	if not action.actions_affected_by.has(self): action.actions_affected_by.append(self)
+	action.reset_and_update_state()
 	
 func add_affected_by_action(action):
-	if not action.actions_affecting.has(action): action.actions_affecting.append(action)
+	if not action.actions_affecting.has(self): action.actions_affecting.append(self)
 	if not actions_affected_by.has(action): actions_affected_by.append(action)
+	reset_and_update_state()
 
 #resets the action, CALLED EXTERNALLY
 func reset_state_recursive():
@@ -67,6 +68,10 @@ func get_unit():
 	return get_parent()
 	
 func queue_free():
-	for action in actions_affecting: action.actions_affected_by.remove(self)
-	for action in actions_affected_by: action.actions_affecting.remove(self)
+	for action in actions_affected_by: 
+		action.actions_affecting.erase(self)
+	for action in actions_affecting:
+		action.actions_affected_by.erase(self)
+	for action in actions_affecting:
+		reset_and_update_state()
 	.queue_free()

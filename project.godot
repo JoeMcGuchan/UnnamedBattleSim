@@ -67,7 +67,7 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "Unit",
 "language": "GDScript",
-"path": "res://Scenes/Unit.gd"
+"path": "res://Scenes/Arena/Unit.gd"
 } ]
 _global_script_class_icons={
 "Action": "",
@@ -87,8 +87,13 @@ _global_script_class_icons={
 [application]
 
 config/name="UnnamedBattleSim"
-run/main_scene="res://Scenes/Arena.tscn"
+run/main_scene="res://Scenes/Arena/Arena.tscn"
 config/icon="res://Resources/Sprites/Button.png"
+
+[layer_names]
+
+2d_physics/layer_1="unit_bodies"
+2d_physics/layer_2="move_actions"
 
 [rendering]
 
