@@ -56,8 +56,7 @@ func collision_dist(other_action : MoveAction):
 		
 		var distance_along_other = min(x * other_action.speed / speed,other_action.dist_traveled)
 		var other_point = other_action.to_global(other_action.get_point_at(distance_along_other))
-		
-		
+
 		var distance_to_other = this_point.distance_to(other_point)
 		if distance_to_other < (clearance + other_action.clearance):
 			return distance_along
@@ -76,7 +75,10 @@ func get_end_point():
 	return path.get_point_position(path.get_point_count()-1)
 
 func reset_state():
-	update_dist_traveled(path_length)
+	if abs(path_length - dist_traveled) > 0.1:
+		update_dist_traveled(path_length)
+		return true
+	return false
 	
 #updates the state, returns true if any change was made
 func update_state():
@@ -89,7 +91,9 @@ func update_state():
 	#equality in floats is spooky so instead we'll check if we're within
 	#one pixel
 	
-	if abs(min_dist - dist_traveled) > 1:
+	print(min_dist)
+	
+	if abs(min_dist - dist_traveled) > 0.1:
 		update_dist_traveled(min_dist)
 		any_change = true
 	

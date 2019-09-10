@@ -32,14 +32,14 @@ func reset_state_recursive():
 	
 	while not unexplored_actions.empty():
 		var action = unexplored_actions.pop()
-		for affected_action in action.actions_affecting:
-			if not reset_actions.has(affected_action):
-				affected_action.reset_state()
-				reset_actions.push_if_not_duplicate(affected_action)
-				unexplored_actions.push_if_not_duplicate(affected_action)
+		if action.reset_state():
+			for affected_action in action.actions_affecting:
+				if not reset_actions.has(affected_action):
+					reset_actions.push_if_not_duplicate(affected_action)
+					unexplored_actions.push_if_not_duplicate(affected_action)
 
 func reset_state():
-	pass
+	return false
 
 #updates the state of the action and ALL ACTIONS THAT ARE DEPENDANT ON IT
 func update_state_recursive():
