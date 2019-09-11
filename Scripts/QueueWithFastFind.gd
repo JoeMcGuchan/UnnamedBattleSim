@@ -20,6 +20,6 @@ func pop():
 	var item = queue.pop_front()
 	item_in_queue.erase(item)
 	return item
-	
+
 func empty():
 	return queue.empty()

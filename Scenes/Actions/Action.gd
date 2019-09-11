@@ -24,6 +24,7 @@ func add_affected_by_action(action):
 	reset_and_update_state()
 
 #resets the action, CALLED EXTERNALLY
+#returns every action that was reset
 func reset_state_recursive():
 	var reset_actions = QueueWithFastFind.new()
 	var unexplored_actions = QueueWithFastFind.new()
@@ -37,13 +38,14 @@ func reset_state_recursive():
 				if not reset_actions.has(affected_action):
 					reset_actions.push_if_not_duplicate(affected_action)
 					unexplored_actions.push_if_not_duplicate(affected_action)
+	
+	return reset_actions
 
 func reset_state():
 	return false
 
 #updates the state of the action and ALL ACTIONS THAT ARE DEPENDANT ON IT
-func update_state_recursive():
-	var actions_to_update = QueueWithFastFind.new()
+func update_state_recursive(actions_to_update):
 	actions_to_update.push_if_not_duplicate(self)
 	
 	while not actions_to_update.empty():
@@ -58,8 +60,7 @@ func update_state():
 
 #resets every action that is dependant on this one, and then updates when all
 func reset_and_update_state():
-	reset_state_recursive()
-	update_state_recursive()
+	update_state_recursive(reset_state_recursive())
 
 func resolve():
 	pass

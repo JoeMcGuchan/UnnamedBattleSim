@@ -91,8 +91,6 @@ func update_state():
 	#equality in floats is spooky so instead we'll check if we're within
 	#one pixel
 	
-	print(min_dist)
-	
 	if abs(min_dist - dist_traveled) > 0.1:
 		update_dist_traveled(min_dist)
 		any_change = true
